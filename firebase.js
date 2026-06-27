@@ -9,18 +9,15 @@ const firebaseConfig = {
   measurementId: "G-Z8N94RRSDE"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Authentication
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-// Google Login
 function googleLogin() {
   auth.signInWithPopup(provider)
     .then((result) => {
-      alert("Welcome " + result.user.displayName);
+      alert("Login Successful: " + result.user.displayName);
       window.location.href = "profile.html";
     })
     .catch((error) => {
@@ -28,7 +25,6 @@ function googleLogin() {
     });
 }
 
-// Logout
 function logout() {
   auth.signOut()
     .then(() => {
@@ -40,19 +36,9 @@ function logout() {
     });
 }
 
-// Check Login Status
-auth.onAuthStateChanged(function(user) {
+auth.onAuthStateChanged((user) => {
   if (user) {
     console.log("Logged in:", user.displayName);
-
-    const userName = document.getElementById("userName");
-    const userEmail = document.getElementById("userEmail");
-    const userPhoto = document.getElementById("userPhoto");
-
-    if (userName) userName.innerHTML = user.displayName;
-    if (userEmail) userEmail.innerHTML = user.email;
-    if (userPhoto) userPhoto.src = user.photoURL;
-
   } else {
     console.log("No user logged in");
   }
