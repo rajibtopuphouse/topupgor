@@ -1,37 +1,45 @@
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+// Rajib Top-Up House - script.js
 
-  if (email === "" || password === "") {
-    alert("অনুগ্রহ করে ইমেইল ও পাসওয়ার্ড লিখুন।");
+function submitOrder() {
+  const uid = document.getElementById("uid").value.trim();
+  const pkg = document.getElementById("package").value;
+  const trx = document.getElementById("trx").value.trim();
+
+  if (uid === "") {
+    alert("অনুগ্রহ করে আপনার Free Fire UID লিখুন");
     return;
   }
 
-  alert("Login সফল হয়েছে (ডেমো)।");
-  window.location.href = "index.html";
-}
+  if (trx === "") {
+    alert("অনুগ্রহ করে Transaction ID লিখুন");
+    return;
+  }
 
-function googleLogin() {
-  alert("Google Login ফিচার যোগ করতে Firebase সেটআপ করতে হবে।");
-}
-function submitOrder() {
-    const uid = document.getElementById("uid").value;
-    const pack = document.getElementById("package").value;
-    const trx = document.getElementById("trx").value;
-
-    if (uid === "" || trx === "") {
-        alert("UID এবং Transaction ID লিখুন");
-        return;
-    }
-
-    const message =
+  const message =
 `🎮 Rajib Top-Up House
 
 🆔 UID: ${uid}
-💎 Package: ${pack}
-💳 Transaction ID: ${trx}`;
 
-    const url = "https://wa.me/8801788655205?text=" + encodeURIComponent(message);
+💎 Package: ${pkg}
 
-    window.open(url, "_blank");
+💳 Transaction ID: ${trx}
+
+✅ নতুন অর্ডার এসেছে।`;
+
+  const whatsapp =
+    "https://wa.me/8801788655205?text=" + encodeURIComponent(message);
+
+  window.open(whatsapp, "_blank");
 }
+
+function downloadApp() {
+  alert("অ্যাপ শীঘ্রই যুক্ত করা হবে।");
+}
+
+function showNotice() {
+  alert("Rajib Top-Up House-এ আপনাকে স্বাগতম ❤️");
+}
+
+window.onload = function () {
+  console.log("Rajib Top-Up House Loaded Successfully");
+};
