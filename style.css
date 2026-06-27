@@ -1,93 +1,92 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
 body{
-    background:#0d1117;
-    color:#fff;
+margin:0;
+padding:0;
+background:#111827;
+font-family:Arial,sans-serif;
+color:white;
 }
 
 .container{
-    width:95%;
-    max-width:500px;
-    margin:20px auto;
-    background:#161b22;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(0,255,255,.2);
+max-width:700px;
+margin:20px auto;
+padding:20px;
+background:#1f2937;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,.4);
 }
 
 h1{
-    text-align:center;
-    color:#00ff99;
-    margin-bottom:15px;
+text-align:center;
+color:#00ff99;
+font-size:38px;
 }
 
-h2,h3{
-    color:#00d4ff;
-    margin:10px 0;
+h2{
+color:#ffd700;
+text-align:center;
+}
+
+h3{
+color:white;
 }
 
 p{
-    margin:8px 0;
+font-size:18px;
 }
 
-input,
-select,
-textarea{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
-    background:#21262d;
-    color:#fff;
-    font-size:16px;
+input,select{
+width:100%;
+padding:14px;
+margin-top:10px;
+margin-bottom:15px;
+border:none;
+border-radius:8px;
+font-size:16px;
+box-sizing:border-box;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border:none;
-    border-radius:8px;
-    background:#00c853;
-    color:#fff;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
+width:100%;
+padding:15px;
+background:#00c853;
+color:white;
+font-size:20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
 }
 
 button:hover{
-    background:#00a844;
-}
-
-a{
-    color:#00d4ff;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-a:hover{
-    color:#00ff99;
+background:#00a844;
 }
 
 .payment{
-    background:#21262d;
-    padding:15px;
-    border-radius:10px;
-    margin-top:15px;
+background:#374151;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+margin-bottom:20px;
 }
 
 img{
-    max-width:100%;
-    border-radius:10px;
+max-width:100%;
+border-radius:10px;
+display:block;
+margin:auto;
 }
 
-hr{
-    border:1px solid #30363d;
-    margin:15px 0;
+ul{
+line-height:2;
+font-size:18px;
+}
+
+a{
+color:#00e5ff;
+text-decoration:none;
+font-weight:bold;
+}
+
+a:hover{
+color:#ffd700;
 }
