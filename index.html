@@ -1,62 +1,52 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajib Top-Up House</title>
-<link rel="stylesheet" href="style.css">
-</head>
+// Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCO6wt9IIkCWF7BdaTtDtHwl2BwNGWMiF0",
+  authDomain: "rajib-top-up-house-bcb4e.firebaseapp.com",
+  projectId: "rajib-top-up-house-bcb4e",
+  storageBucket: "rajib-top-up-house-bcb4e.firebasestorage.app",
+  messagingSenderId: "132908919579",
+  appId: "1:132908919579:web:5afdc380d0fcb170a981be",
+  measurementId: "G-Z8N94RRSDE"
+};
 
-<body>
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-<div class="container">
+// Authentication
+const auth = firebase.auth();
 
-<h1>Rajib Top-Up House</h1>
+// Google Login Provider
+const provider = new firebase.auth.GoogleAuthProvider();
 
-<p>🔥 বাংলাদেশের বিশ্বস্ত Free Fire Top-Up Website 🔥</p>
+// Google Login Function
+function googleLogin() {
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      alert("Login Successful: " + result.user.displayName);
+      window.location.href = "profile.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
 
-<nav>
-<a href="index.html">🏠 Home</a> |
-<a href="login.html">🔑 Login</a> |
-<a href="profile.html">👤 Profile</a> |
-<a href="admin.html">⚙️ Admin</a>
-</nav>
+// Logout Function
+function logout() {
+  auth.signOut()
+    .then(() => {
+      alert("Logout Successful");
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
 
-<hr>
-
-<h2>🎮 Free Fire Top-Up</h2>
-
-<input type="text" placeholder="আপনার Free Fire UID লিখুন">
-
-<select>
-<option>💎 25 Diamond - ৳25</option>
-<option>💎 50 Diamond - ৳45</option>
-<option>💎 115 Diamond - ৳85</option>
-<option>💎 240 Diamond - ৳170</option>
-<option>💎 610 Diamond - ৳420</option>
-<option>💎 1240 Diamond - ৳830</option>
-<option>⭐ Weekly Membership - ৳150</option>
-<option>⭐ Weekly Lite - ৳45</option>
-<option>👑 Monthly Membership - ৳750</option>
-</select>
-
-<div class="payment">
-<h3>Payment</h3>
-<p><b>bKash:</b> 01788655205</p>
-<p><b>Nagad:</b> 01788655205</p>
-</div>
-
-<input type="text" placeholder="Transaction ID">
-
-<button>Order Submit</button>
-
-<button onclick="window.open('https://wa.me/8801788655205')">
-📲 WhatsApp
-</button>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+// Check Login Status
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("Logged in:", user.displayName);
+  } else {
+    console.log("No user logged in");
+  }
+});
