@@ -1,7 +1,4 @@
-// firebase.js
-import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
-
+// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCO6wt9IIkCWF7BdaTtDtHwl2BwNGWMiF0",
   authDomain: "rajib-top-up-house-bcb4e.firebaseapp.com",
@@ -13,8 +10,50 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+firebase.initializeApp(firebaseConfig);
 
-export { auth, provider, signInWithPopup, signOut, onAuthStateChanged };
+// Authentication
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// Google Login
+function googleLogin() {
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      alert("Welcome " + result.user.displayName);
+      window.location.href = "profile.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
+
+// Logout
+function logout() {
+  auth.signOut()
+    .then(() => {
+      alert("Logout Successful");
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
+
+// Check Login Status
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("Logged in:", user.displayName);
+
+    const userName = document.getElementById("userName");
+    const userEmail = document.getElementById("userEmail");
+    const userPhoto = document.getElementById("userPhoto");
+
+    if (userName) userName.innerHTML = user.displayName;
+    if (userEmail) userEmail.innerHTML = user.email;
+    if (userPhoto) userPhoto.src = user.photoURL;
+
+  } else {
+    console.log("No user logged in");
+  }
+});
