@@ -3,38 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel - Rajib Top-Up House</title>
+<title>Admin Panel | Rajib Top-Up House</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
 <div class="container">
 
-<h1>Admin Panel</h1>
+<h1>⚙️ Admin Panel</h1>
 
-<h3>📋 Order List</h3>
+<hr>
 
-<p>এখানে ভবিষ্যতে সব অর্ডার দেখা যাবে।</p>
+<p>👨‍💼 Welcome Admin</p>
 
-<h3>💎 Package Management</h3>
+<h2>📊 Dashboard</h2>
 
-<p>এখানে Diamond ও Membership-এর দাম পরিবর্তন করা যাবে।</p>
+<div class="card">
+<h3>📦 Total Orders</h3>
+<p id="totalOrders">0</p>
+</div>
 
-<h3>📢 Notice</h3>
+<div class="card">
+<h3>👥 Total Users</h3>
+<p id="totalUsers">0</p>
+</div>
 
-<textarea rows="5" style="width:100%;" placeholder="নোটিশ লিখুন..."></textarea>
+<div class="card">
+<h3>💰 Today's Sales</h3>
+<p>৳0</p>
+</div>
 
-<br><br>
+<hr>
 
-<button>Save Notice</button>
+<h2>📋 Recent Orders</h2>
 
-<br><br>
+<table border="1" width="100%">
+<tr>
+<th>UID</th>
+<th>Package</th>
+<th>Status</th>
+</tr>
 
-<a href="index.html">🏠 Home</a>
+<tr>
+<td>Example UID</td>
+<td>115 Diamond</td>
+<td>Pending</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h2>⚡ Quick Menu</h2>
+
+<p><a href="index.html">🏠 Home</a></p>
+
+<p><a href="profile.html">👤 Profile</a></p>
+
+<p><a href="contact.html">📞 Contact</a></p>
+
+<p><a href="notice.html">📢 Notice</a></p>
+
+<hr>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
+
+<hr>
+
+<p style="text-align:center;">
+© 2026 Rajib Top-Up House
+</p>
 
 </div>
 
-<script src="script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="firebase.js"></script>
 
 </body>
 </html>
