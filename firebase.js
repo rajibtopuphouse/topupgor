@@ -1,3 +1,4 @@
+// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCO6wt9IIkCWF7BdaTtDtHwl2BwNGWMiF0",
   authDomain: "rajib-top-up-house-bcb4e.firebaseapp.com",
@@ -7,3 +8,11 @@ const firebaseConfig = {
   appId: "1:132908919579:web:5afdc380d0fcb170a981be",
   measurementId: "G-Z8N94RRSDE"
 };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Firebase Authentication
+const auth = firebase.auth();
+
+console.log("Firebase Connected Successfully");
