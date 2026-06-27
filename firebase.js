@@ -1,4 +1,7 @@
-// Firebase Configuration
+// firebase.js
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCO6wt9IIkCWF7BdaTtDtHwl2BwNGWMiF0",
   authDomain: "rajib-top-up-house-bcb4e.firebaseapp.com",
@@ -10,9 +13,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-// Firebase Authentication
-const auth = firebase.auth();
-
-console.log("Firebase Connected Successfully");
+export { auth, provider, signInWithPopup, signOut, onAuthStateChanged };
