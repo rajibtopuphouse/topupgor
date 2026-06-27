@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rajib Top-Up House - Login</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Rajib Top-Up House</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Rajib Top-Up House</h1>
+<h1>🔑 Login</h1>
 
-<h2>Login</h2>
+<p>Rajib Top-Up House এ স্বাগতম</p>
 
-<input type="email" id="email" placeholder="আপনার Gmail লিখুন">
+<hr>
 
-<input type="password" id="password" placeholder="Password লিখুন">
-
-<button onclick="login()">Login</button>
+<img src="logo.png" width="120">
 
 <br><br>
 
-<button onclick="googleLogin()">Google দিয়ে Login</button>
+<button onclick="googleLogin()">
+🔐 Google দিয়ে Login করুন
+</button>
 
 <br><br>
 
-<a href="index.html">← হোম পেজে ফিরে যান</a>
+<a href="index.html">
+🏠 Home
+</a>
 
 </div>
 
-<script src="script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+
+<script src="firebase.js"></script>
 
 </body>
 </html>
