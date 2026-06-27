@@ -1,53 +1,35 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajib Top-Up House</title>
 
-// Firebase Configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCO6wt9IIkCWF7BdaTtDtHwl2BwNGWMiF0",
-  authDomain: "rajib-top-up-house-bcb4e.firebaseapp.com",
-  projectId: "rajib-top-up-house-bcb4e",
-  storageBucket: "rajib-top-up-house-bcb4e.firebasestorage.app",
-  messagingSenderId: "132908919579",
-  appId: "1:132908919579:web:5afdc380d0fcb170a981be",
-  measurementId: "G-Z8N94RRSDE"
-};
+  <link rel="stylesheet" href="style.css">
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
 
-// Authentication
-const auth = firebase.auth();
+<body>
 
-// Google Login Provider
-const provider = new firebase.auth.GoogleAuthProvider();
+<div class="container">
 
-// Google Login Function
-function googleLogin() {
-  auth.signInWithPopup(provider)
-    .then((result) => {
-      alert("Login Successful: " + result.user.displayName);
-      window.location.href = "profile.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-}
+  <h1>🔥 Rajib Top-Up House</h1>
 
-// Logout Function
-function logout() {
-  auth.signOut()
-    .then(() => {
-      alert("Logout Successful");
-      window.location.href = "index.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-}
+  <p>বাংলাদেশের বিশ্বস্ত Free Fire Top-Up Website</p>
 
-// Check Login Status
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Logged in:", user.displayName);
-  } else {
-    console.log("No user logged in");
-  }
-});
+  <br>
+
+  <button onclick="googleLogin()">
+    Google দিয়ে Login করুন
+  </button>
+
+</div>
+
+<!-- Firebase JS -->
+<script src="firebase.js"></script>
+
+</body>
+</html>
