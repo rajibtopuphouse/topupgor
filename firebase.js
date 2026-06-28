@@ -9,22 +9,31 @@ const firebaseConfig = {
   measurementId: "G-Z8N94RRSDE"
 };
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Authentication
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
+// Google Login
 function googleLogin() {
-  auth.signInWithPopup(provider)
-    .then((result) => {
-      alert("Login Successful: " + result.user.displayName);
-      window.location.href = "profile.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+  auth.signInWithRedirect(provider);
 }
 
+// Redirect থেকে ফিরে আসার পর Login Status
+auth.getRedirectResult()
+  .then((result) => {
+    if (result.user) {
+      alert("Login Successful: " + result.user.displayName);
+      window.location.href = "profile.html";
+    }
+  })
+  .catch((error) => {
+    alert(error.message);
+  });
+
+// Logout
 function logout() {
   auth.signOut()
     .then(() => {
@@ -36,6 +45,7 @@ function logout() {
     });
 }
 
+// Login Status
 auth.onAuthStateChanged((user) => {
   if (user) {
     console.log("Logged in:", user.displayName);
