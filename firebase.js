@@ -20,18 +20,18 @@ const provider = new firebase.auth.GoogleAuthProvider();
 function googleLogin() {
   alert("Google Login Clicked");
 
-  provider.setCustomParameters({
-    prompt: "select_account"
-  });
-
-  auth.signInWithRedirect(provider)
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      alert("Login Successful: " + result.user.displayName);
+      window.location.href = "profile.html";
+    })
     .catch((error) => {
-      alert("Error: " + error.code + "\n" + error.message);
+      alert(error.code + "\n" + error.message);
     });
 }
 
 // Redirect থেকে ফিরে আসার পর Login Status
-auth.getRedirectResult()
+
   .then((result) => {
     if (result.user) {
       alert("Login Successful: " + result.user.displayName);
