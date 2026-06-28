@@ -20,10 +20,13 @@ const provider = new firebase.auth.GoogleAuthProvider();
 function googleLogin() {
   alert("Google Login Clicked");
 
+  provider.setCustomParameters({
+    prompt: "select_account"
+  });
+
   auth.signInWithRedirect(provider)
     .catch((error) => {
-      alert(error.message);
-      console.log(error);
+      alert("Error: " + error.code + "\n" + error.message);
     });
 }
 
