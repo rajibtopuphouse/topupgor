@@ -17,9 +17,14 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-// Google Login
 function googleLogin() {
-  auth.signInWithRedirect(provider);
+  alert("Google Login Clicked");
+
+  auth.signInWithRedirect(provider)
+    .catch((error) => {
+      alert(error.message);
+      console.log(error);
+    });
 }
 
 // Redirect থেকে ফিরে আসার পর Login Status
