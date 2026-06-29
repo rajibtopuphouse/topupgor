@@ -18,34 +18,14 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 // Google Login
 function googleLogin() {
-  auth.signInWithPopup(provider)
-    .then((result) => {
+  auth.signInWithRedirect(provider);
+}
+
+// Redirect Result
+auth.getRedirectResult()
+  .then((result) => {
+    if (result.user) {
       alert("Login Successful: " + result.user.displayName);
       window.location.href = "profile.html";
-    })
-    .catch((error) => {
-      alert("Error: " + error.code + "\n" + error.message);
-      console.error(error);
-    });
-}
-
-// Logout
-function logout() {
-  auth.signOut()
-    .then(() => {
-      alert("Logout Successful");
-      window.location.href = "index.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-}
-
-// Login Status
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Logged in:", user.displayName);
-  } else {
-    console.log("No user logged in");
-  }
-});
+    }
+  })
