@@ -1,4 +1,4 @@
-alert("firebase.js loaded");
+
 // Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCO6wt9IIkCWF7BdaTtDtHwl2BwNGWMiF0",
@@ -17,30 +17,18 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
+// Google Login
 function googleLogin() {
-  alert("Google Login Clicked");
-
   auth.signInWithPopup(provider)
     .then((result) => {
       alert("Login Successful: " + result.user.displayName);
       window.location.href = "profile.html";
     })
     .catch((error) => {
-      alert(error.code + "\n" + error.message);
+      alert("Error: " + error.code + "\n" + error.message);
+      console.error(error);
     });
 }
-
-// Redirect থেকে ফিরে আসার পর Login Status
-
-  .then((result) => {
-    if (result.user) {
-      alert("Login Successful: " + result.user.displayName);
-      window.location.href = "profile.html";
-    }
-  })
-  .catch((error) => {
-    alert(error.message);
-  });
 
 // Logout
 function logout() {
