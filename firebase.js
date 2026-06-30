@@ -17,7 +17,9 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 // Google Login
 function googleLogin() {
-  alert("Login button clicked");
+  alert(function googleLogin() {
+  auth.signInWithRedirect(provider);
+}
   auth.signInWithRedirect(provider);
 }
 
